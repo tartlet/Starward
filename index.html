@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo1</title>
+        <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.js"></script>
+        <script src="Boot.js"></script>
+        <script src="Preload.js"></script>
+        <script src="Game.js"></script>
+        <script src='Shop.js'></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var game = new Phaser.Game(160, 160, Phaser.AUTO, '');
+            var money = 0;
+            game.scoreText;
+            game.state.add('Boot', Starward.Boot);
+            game.state.add('Preload', Starward.Preload);
+            game.state.add('Game', Starward.Game);
+            game.state.add('Shop', Starward.Shop);
+            game.state.start('Boot');
+        </script>
+    </body>
+</html>

@@ -11,7 +11,7 @@ Starward.Game.prototype = {
         tileset = map.addTilesetImage('tset1', 'tileset1');
         this.layer = map.createLayer(0,'toplayer', tileset);
         player = this.add.sprite(0, 128, 'player');
-        player.enableBody = true;
+        // player.enableBody = true;
         this.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
         this.countdown = this.add.text('$: ' + this.money, 10);
@@ -19,7 +19,7 @@ Starward.Game.prototype = {
         player.animations.add('walk', [7, 8, 9, 10], 100, true);
 
         chest = this.add.sprite(128, 0, 'chest');
-        chest.enableBody = true;
+        // chest.enableBody = true;
         this.physics.arcade.enable(chest);
         cursors = this.input.keyboard.createCursorKeys();
         money = 0;
@@ -48,9 +48,9 @@ Starward.Game.prototype = {
 
     update: function () {
         this.physics.arcade.overlap(chest, player, this.collideMoney, null, this);
-        player.body.velocity.x = 0;
-        player.body.velocity.y = 0;
-        player.animations.play('idle');
+        // player.body.velocity.x = 0;       ### default is 0 ###
+        // player.body.velocity.y = 10; 
+        // player.animations.play('idle');      ### Redundant ###
         if (cursors.left.isDown) {
             //  Move to the left
             this.movePlayer(-1, 0);
@@ -82,3 +82,4 @@ Starward.Game.prototype = {
             }
         }
 };
+

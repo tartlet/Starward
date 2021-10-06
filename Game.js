@@ -22,14 +22,14 @@ Starward.Game.prototype = {
         this.physics.arcade.enable(player);
         player.body.collideWorldBounds = true;
         this.countdown = this.add.text('$: ' + this.money, 10);
-        player.animations.add('idle_f', [1, 2, 3, 4, 5, 6], 10, true);
-        player.animations.add('walk_f', [7, 8, 9, 10], 100, true);
-        player.animations.add('idle_r', [11, 12, 13, 14, 15, 16], 10, true);
-        player.animations.add('walk_r', [17, 18, 19, 20], 100, true);
-        player.animations.add('idle_l', [27, 28, 29, 30, 31, 32], 10, true);
-        player.animations.add('walk_l', [33, 34, 35, 36], 100, true);
-        player.animations.add('idle_b', [37, 38, 39, 40, 41, 42], 10, true);
-        player.animations.add('walk_b', [43, 44, 45, 46], 100, true);
+        player.animations.add('idle_f', [1, 2, 3, 4, 5, 6], 6, true);
+        player.animations.add('walk_f', [7, 8, 9, 10], 4, true);
+        player.animations.add('idle_r', [11, 12, 13, 14, 15, 16], 6, true);
+        player.animations.add('walk_r', [17, 18, 19, 20], 4, true);
+        player.animations.add('idle_l', [27, 28, 29, 30, 31, 32], 6, true);
+        player.animations.add('walk_l', [33, 34, 35, 36], 4, true);
+        player.animations.add('idle_b', [37, 38, 39, 40, 41, 42], 6, true);
+        player.animations.add('walk_b', [43, 44, 45, 46], 4, true);
         
         // Move this chunk later to add the chest after the enemies are slain
         
@@ -89,7 +89,7 @@ Starward.Game.prototype = {
         // While nothing is being pressed, make player stand still
         player.body.velocity.x = 0;
         player.body.velocity.y = 0;
-        player.animations.play('idle');
+        player.animations.play('idle_f');
         
         // Check for dead enemies
         if (enemy1.health <= 0){    // Change this code later, could work by putting them in arrray
@@ -153,8 +153,7 @@ Starward.Game.prototype = {
             player.animations.play('walk_f');
         }
         else {
-            player.animations.stop();
-            player.animations.play('idle');
+            player.animations.play('idle_f');
         }
         
         // When all enemies are defeated, spawn the chest to proceed to the shop

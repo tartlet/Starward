@@ -2,12 +2,11 @@ var Starward = Starward || {};
 
 Starward.Game = function () {};
 var total = 0;
-<<<<<<< Updated upstream
-=======
+
 var totalEnemies = 3;
 var currentEnemies = totalEnemies;
 var chestSpawned = false;
->>>>>>> Stashed changes
+
 
 // initializes array to hold the enemies
 var enemies = [];
@@ -29,26 +28,10 @@ var lives = [];
 Starward.Game.prototype = {
     
     create: function () {
+        game.physics.startSystem(Phaser.Physics.Arcade);
         timer = this.time.create();
         map = this.add.tilemap('tilemap1');
-<<<<<<< Updated upstream
-        tileset = map.addTilesetImage('tset1', 'tileset1');
-        this.layer = map.createLayer(0,'toplayer', tileset);
-        player = this.add.sprite(0, 128, 'player');
-        // player.enableBody = true;
-        this.physics.arcade.enable(player);
-        player.body.collideWorldBounds = true;
-        this.countdown = this.add.text('$: ' + this.money, 10);
-        player.animations.add('idle', [1, 2, 3, 4, 5, 6], 10, true);
-        player.animations.add('walk', [7, 8, 9, 10], 100, true);
 
-        chest = this.add.sprite(128, 0, 'chest');
-        // chest.enableBody = true;
-        this.physics.arcade.enable(chest);
-        cursors = this.input.keyboard.createCursorKeys();
-        money = 0;
-        this.scoreText = this.add.text(0, 0, '$:0', {font:'15px Comic Sans MS', fill:'#fff'});
-=======
         tileset = map.addTilesetImage('starward', 'tileset1', 64, 64);
         this.layer1 = map.createLayer('bg');
         this.layer2 = map.createLayer('ground');
@@ -192,7 +175,7 @@ Starward.Game.prototype = {
         
         
         
->>>>>>> Stashed changes
+
     },
     
     //===================================
@@ -203,7 +186,7 @@ Starward.Game.prototype = {
             return;
         }
         player.isMoving = true;
-        this.add.tween(player).to({x: player.x + x * 32, y: player.y + y * 32 }, 
+        this.add.tween(player).to({x: player.x + x * 64, y: player.y + y * 64 }, 
             150, Phaser.Easing.Quadratic.InOut, true).onComplete.add(function() {
             player.isMoving = false;}, this);
     },
@@ -315,12 +298,7 @@ Starward.Game.prototype = {
     },
 
     update: function () {
-<<<<<<< Updated upstream
-        this.physics.arcade.overlap(chest, player, this.collideMoney, null, this);
-        // player.body.velocity.x = 0;       ### default is 0 ###
-        // player.body.velocity.y = 10; 
-        // player.animations.play('idle');      ### Redundant ###
-=======
+
         game.physics.arcade.collide('player', map);
         if (chestSpawned == true){
             this.physics.arcade.overlap(chest, player, this.collideMoney, null, this);
@@ -400,36 +378,33 @@ Starward.Game.prototype = {
 //        }
         
         // Player movement
->>>>>>> Stashed changes
+        
         if (cursors.left.isDown) {
             //  Move to the left
             this.movePlayer(-1, 0);
             //player.body.velocity.x = -200;
-            player.animations.play('walk');
+            player.animations.play('walk_l');
         }
         else if (cursors.right.isDown) {
             //  Move to the right
             this.movePlayer(1, 0);
             //player.body.velocity.x = 200;
-            player.animations.play('walk');
+            player.animations.play('walk_r');
         }
         else if (cursors.up.isDown) {
             this.movePlayer(0, -1);
             //player.body.velocity.y = -200;
-            player.animations.play('walk');
+            player.animations.play('walk_b');
         }
         else if (cursors.down.isDown) {
             this.movePlayer(0, 1);
             //player.body.velocity.y = 200;
-            player.animations.play('walk');
+            player.animations.play('walk_f');
         }
         else {
-<<<<<<< Updated upstream
-            player.animations.play('idle');
-        }
-=======
             player.animations.play('idle_f');
         }
+
         
         // When all enemies are defeated, spawn the chest to proceed to the shop
 //        if (numEnemies == 0 && chestSpawned == false){
@@ -439,7 +414,7 @@ Starward.Game.prototype = {
 //            chestSpawned = true;
 //            this.proceedText = this.add.text(0, 64, 'Collect chest to proceed!', {font: '12px Comic Sans MS', fill: '#fff'});
 //        }
->>>>>>> Stashed changes
+
 
         if(this.gameover == true){
                 this.state.start('Shop');

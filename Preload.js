@@ -6,18 +6,11 @@ Starward.Preload = function(game) {
 
 Starward.Preload.prototype = {
     preload: function() {
-    this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'preloadBar');
-    this.preloadBar.anchor.setTo(0.5);
-    this.load.setPreloadSprite(this.preloadBar);
+        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY + 128, 'preloadBar');
+        this.preloadBar.anchor.setTo(0.5);
+        this.load.setPreloadSprite(this.preloadBar);
 
-    this.load.tilemap('tilemap1', 'assets/level1.csv', null, Phaser.Tilemap.CSV);
-    this.load.image('tileset1', 'assets/TileMap.png');
-    this.load.image('level1bg', 'assets/sky.png');
-    this.load.spritesheet('player', 'assets/forgotten.png', 32, 32);
-    this.load.spritesheet('chest', 'assets/chest.png', 32, 32);
-
-<<<<<<< Updated upstream
-=======
+    
         this.load.tilemap('tilemap1', 'assets/level1.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.image('tileset1', 'assets/tilemap_64px.png');
         this.load.spritesheet('player', 'assets/forgottenv2_64px.png', 64, 64);
@@ -25,7 +18,7 @@ Starward.Preload.prototype = {
         
         
         // Load the player's attacking spritesheet below
-        this.load.image('playerAttack', 'assets/PlayerBasicAttack.png', 32, 32);
+//        this.load.image('playerAttack', 'assets/PlayerBasicAttack.png', 32, 32);
         
         this.load.spritesheet('chest', 'assets/chest.png', 32, 32);
     
@@ -41,7 +34,7 @@ Starward.Preload.prototype = {
         this.load.image('scoreboard', 'assets/scoreboard.png', 128, 64);
         this.load.image('life', 'assets/life.png', 64, 64);
         
->>>>>>> Stashed changes
+
     },
 
     create: function() {

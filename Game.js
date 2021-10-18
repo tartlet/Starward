@@ -1,5 +1,3 @@
-var Starward = Starward || {};
-
 Starward.Game = function () {};
 var total = 0;
 

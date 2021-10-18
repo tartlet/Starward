@@ -1,5 +1,3 @@
-var Starward = Starward || {};
-
 Starward.Preload = function(game) {
     this.money;
 };
@@ -33,6 +31,8 @@ Starward.Preload.prototype = {
         // GUI things
         this.load.image('scoreboard', 'assets/scoreboard.png', 128, 64);
         this.load.image('life', 'assets/life.png', 64, 64);
+
+
         
 
     },

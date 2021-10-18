@@ -7,11 +7,12 @@
         <script src="Preload.js"></script>
         <script src="Game.js"></script>
         <script src='Shop.js'></script>
-        <script src='GameOver.js'></script>
+        <script src='GameOver.js'></script> 
+
     </head>
     <body>
         <script type="text/javascript">
-            var game = new Phaser.Game(1600, 1600, Phaser.AUTO, '');
+            var game = new Phaser.Game(768, 768, Phaser.AUTO, '');
             var money = 0;
             game.scoreText;
             game.state.add('Boot', Starward.Boot);

@@ -11,12 +11,11 @@ Starward.Boot.prototype = {
 
 	create: function() {
 		background = this.add.sprite(0, 0, 'background');
-		// startButton = this.add.sprite(384, 360, 'startButton');
-		var tutorialButton = this.add.button(384, 470, 'tutorialButton', tutorial());
+		var tutorialButton = this.add.button(384, 490, 'tutorialButton', tutorial());
 		tutorialButton.scale.setTo(.8);
 		tutorialButton.anchor.set(.5,.5);
 
-		var startButton = this.add.button(384, 360, "startButton", startGame)
+		var startButton = this.add.button(384, 370, "startButton", startGame)
 		startButton.scale.setTo(.8);
 		startButton.anchor.set(.5,.5);
 

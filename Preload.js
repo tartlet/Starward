@@ -21,7 +21,10 @@ Starward.Preload.prototype = {
         this.load.spritesheet('chest', 'assets/chest.png', 32, 32);
     
         // Load the enemy sprites below
-        this.load.image('turret', 'assets/enemies/turret.png', 64, 64);
+        this.load.image('turret1', 'assets/enemies/turret1.png', 64, 64);
+        this.load.image('turret2', 'assets/enemies/turret2.png', 64, 64);
+        this.load.image('turret3', 'assets/enemies/turret3.png', 64, 64);
+        this.load.image('turret4', 'assets/enemies/turret4.png', 64, 64);
         this.load.spritesheet('turretBul', 'assets/enemies/turretProjectile.png', 64, 64);
         
         // Load the enemy danger squares below

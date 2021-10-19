@@ -207,7 +207,8 @@ Starward.Game.prototype = {
        
         for ( i = 0; i < totalEnemies; i++) {
             
-            selection = spaces[Math.floor(Math.random() * spaces.length)];
+            random = Math.floor(Math.random() * spaces.length);
+            selection = spaces[random];
            
             // set direction, 1 is north, 2 east, 3 south, 4 west
             if (selection[1] == 2){
@@ -239,8 +240,7 @@ Starward.Game.prototype = {
             enemies.push(enemy);
 
             // delete the selection from spaces array to avoid turret in same space
-            spaces.splice(selection,1)
-        
+            var deleted = spaces.splice(random,1);
 
 
         

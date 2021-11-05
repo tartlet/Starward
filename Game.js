@@ -360,7 +360,8 @@ Starward.Game.prototype = {
         if (chestSpawned == true){
             this.physics.arcade.overlap(chest, player, this.collideMoney, null, this);
         }
-        
+
+
         // set the game over screen when player loses all of their lives
         if (currentLives == 0){
             this.state.start('GameOver');
@@ -437,26 +438,47 @@ Starward.Game.prototype = {
         // Player movement
         
         if (cursors.left.isDown) {
-            //  Move to the left
-            this.movePlayer(-1, 0);
             //player.body.velocity.x = -200;
             player.animations.play('walk_l');
+            if(player.x == 192){
+                return
+            }
+            else{
+                //  Move to the left
+                this.movePlayer(-1, 0);
+            }
+            
         }
         else if (cursors.right.isDown) {
             //  Move to the right
-            this.movePlayer(1, 0);
-            //player.body.velocity.x = 200;
             player.animations.play('walk_r');
+            if(player.x == 512){
+                return
+            }
+            else{
+                this.movePlayer(1,0);
+            }
+            //player.body.velocity.x = 200;
         }
         else if (cursors.up.isDown) {
-            this.movePlayer(0, -1);
             //player.body.velocity.y = -200;
             player.animations.play('walk_b');
+            if(player.y == 192){
+                return
+            }
+            else{
+                this.movePlayer(0,-1);
+            }
         }
         else if (cursors.down.isDown) {
-            this.movePlayer(0, 1);
             //player.body.velocity.y = 200;
             player.animations.play('walk_f');
+            if(player.y == 512){
+                return
+            }
+            else{
+                this.movePlayer(0,1);
+            }
         }
         else {
             player.animations.play('idle_f');

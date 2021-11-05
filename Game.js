@@ -116,36 +116,17 @@ Starward.Game.prototype = {
                     facingDirection = enemies[i].attackDirection;
                     
                     // add the projectile to be shot from the square in front of the enemy
-                    if (facingDirection == 1){
-                        turretProjectile = this.add.sprite(enemies[i].x, enemies[i].y + 64, 'turretBul');
-                        turretProjectile.enableBody = true;
-                        this.physics.arcade.enable(turretProjectile);
-                        turretProjectile.animations.add('spinning', [1, 2, 3, 4], 4, true);
-                        turretProjectile.animations.play('spinning');
-                        turretProjectile.body.velocity.y = 256;
-                    } else if (facingDirection == 2){
-                        turretProjectile = this.add.sprite(enemies[i].x - 64, enemies[i].y, 'turretBul');
-                        turretProjectile.enableBody = true;
-                        this.physics.arcade.enable(turretProjectile);
-                        turretProjectile.animations.add('spinning', [1, 2, 3, 4], 4, true);
-                        turretProjectile.animations.play('spinning');
-                        turretProjectile.body.velocity.x = -256;
-                    } else if (facingDirection == 3){
-                        turretProjectile = this.add.sprite(enemies[i].x, enemies[i].y - 64, 'turretBul');
-                        turretProjectile.enableBody = true;
-                        this.physics.arcade.enable(turretProjectile);
-                        turretProjectile.animations.add('spinning', [1, 2, 3, 4], 4, true);
-                        turretProjectile.animations.play('spinning');
-                        turretProjectile.body.velocity.y = -256;
-                    } else if (facingDirection == 4){
-                        turretProjectile = this.add.sprite(enemies[i].x + 64, enemies[i].y, 'turretBul');
-                        turretProjectile.enableBody = true;
-                        this.physics.arcade.enable(turretProjectile);
-                        turretProjectile.animations.add('spinning', [1, 2, 3, 4], 4, true);
-                        turretProjectile.animations.play('spinning');
-                        turretProjectile.body.velocity.x = 256;
-                    }
-                    
+                    // array = [x,y,velocity]
+                    const coordinates = [[0,64, 254], [-64,0, -256], [0,-64, -265], [64,0, 256]] 
+                    currentCoordinates = coordinates[facingDirection-1]
+
+                    turretProjectile = this.add.sprite(enemies[i].x + currentCoordinates[0], enemies[i].y + currentCoordinates[1], 'turretBul');
+                    turretProjectile.enableBody = true;
+                    this.physics.arcade.enable(turretProjectile);
+                    turretProjectile.body.velocity.y = currentCoordinates[2];
+                    turretProjectile.animations.add('spinning', [1, 2, 3, 4], 4, true);
+                    turretProjectile.animations.play('spinning');
+
                     projectiles.push(turretProjectile);
                 }
                 
